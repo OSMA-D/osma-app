@@ -4,5 +4,5 @@
 
 body{
   @apply dark:bg-zinc-900;
-  @apply bg-zinc-300;
+  @apply bg-white;
 }
