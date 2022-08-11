@@ -10,7 +10,7 @@ use types::*;
 
 mod commands;
 fn main() {
-    let options = fs::read_to_string("./options.json").unwrap_or("{\"jwt\":null}".to_string());
+    let options = fs::read_to_string("options.json").unwrap_or("{\"jwt\":null}".to_string());
     tauri::Builder::default()
         .manage(
             serde_json::from_str::<AppData>(&options).unwrap_or(AppData {

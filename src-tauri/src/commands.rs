@@ -11,11 +11,17 @@ pub fn check_auth(state: State<AppData>) -> bool {
     } else {
         let client = Client::new();
         let response = client
-            .get("https://osma-server.herokuapp.com/personal_library")
+            .get("https://osma-server.herokuapp.com/api/personal_library")
             .bearer_auth(&state.jwt)
             .send();
         match response {
-            Ok(_) => true,
+            Ok(response) => {
+                if response.status().is_success() {
+                    true
+                } else {
+                    false
+                }
+            }
             Err(_) => false,
         }
     }
