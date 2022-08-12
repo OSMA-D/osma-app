@@ -17,7 +17,7 @@ function App() {
   };
 
   let changeLng = async (lang) => {
-    let lng = await invoke("change_lng", { lng: lang });
+    await invoke("change_lng", { lng: lang });
     i18n.changeLanguage(lang);
   };
 
